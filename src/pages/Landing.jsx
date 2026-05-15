@@ -26,42 +26,7 @@ export default function Landing() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
-        {/* Logo */}
-        <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-12"
-        >
-          <img
-            src={LOGO_IMAGE}
-            alt="قطار الحرمين السريع"
-            className="h-20 md:h-28 w-auto brightness-0 invert opacity-90"
-          />
-        </motion.div>
 
-        {/* Decorative Line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="w-24 h-px bg-primary/60 mb-10"
-        />
-
-        {/* Welcome Text */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-center mb-14"
-        >
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-wide">
-            مرحباً بك
-          </h1>
-          <p className="text-white/60 text-lg md:text-xl font-light max-w-md mx-auto leading-relaxed">
-            نظام قطار الحرمين السريع
-          </p>
-        </motion.div>
 
         {/* Login Button */}
         <motion.div
