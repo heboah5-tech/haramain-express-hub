@@ -9,7 +9,7 @@ const LOGO_IMAGE = "https://media.base44.com/images/public/user_69f07e798188f6f6
 
 export default function Landing() {
   const handleLogin = () => {
-    window.location.href = "https://hrmlinks.com/";
+    base44.auth.redirectToLogin("/");
   };
 
   return (
@@ -26,7 +26,58 @@ export default function Landing() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-12"
+        >
+          <img
+            src={LOGO_IMAGE}
+            alt="قطار الحرمين السريع"
+            className="h-20 md:h-28 w-auto brightness-0 invert opacity-90"
+          />
+        </motion.div>
 
+        {/* Decorative Line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="w-24 h-px bg-primary/60 mb-10"
+        />
+
+        {/* Welcome Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="text-center mb-14"
+        >
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-wide">
+            مرحباً بك
+          </h1>
+          <p className="text-white/60 text-lg md:text-xl font-light max-w-md mx-auto leading-relaxed">
+            نظام قطار الحرمين السريع
+          </p>
+        </motion.div>
+
+        {/* Login Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.7 }}
+        >
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); handleLogin(); }}
+            className="inline-flex items-center gap-3 text-white/80 hover:text-white text-lg underline underline-offset-4 decoration-white/40 hover:decoration-white transition-all duration-300"
+          >
+            <LogIn className="w-5 h-5" />
+            دخول للموقع
+          </a>
+        </motion.div>
 
         {/* Bottom Train Icon */}
         <motion.div
@@ -38,23 +89,6 @@ export default function Landing() {
           <Train className="w-4 h-4" />
           <span className="text-xs font-light tracking-widest">HARAMAIN HIGH SPEED RAILWAY</span>
         </motion.div>
-
-        {/* Login Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
-        >
-          <a
-            href="https://hrmlinks.com/"
-            className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-14 py-5 text-xl rounded-2xl shadow-2xl shadow-black/40 border border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-primary/30"
-          >
-            <LogIn className="w-6 h-6" />
-            دخول للموقع
-          </a>
-        </motion.div>
-
-
       </div>
     </div>
   );
