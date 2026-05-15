@@ -43,16 +43,7 @@ export default function Landing() {
           </a>
         </motion.div>
 
-        {/* Bottom Train Icon */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="absolute bottom-8 flex items-center gap-2 text-white/20"
-        >
-          <Train className="w-4 h-4" />
-          <span className="text-xs font-light tracking-widest">HARAMAIN HIGH SPEED RAILWAY</span>
-        </motion.div>
+
       </div>
     </div>
   );
