@@ -1,59 +1,85 @@
-import React from "react";
-import { LogIn } from "lucide-react";
-import { base44 } from "@/api/base44Client";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import HeroBackground from "../components/landing/HeroBackground";
+import LuminousRail from "../components/landing/LuminousRail";
+import GlassPulseButton from "../components/landing/GlassPulseButton";
+import TrackLines from "../components/landing/TrackLines";
+import HorizonFooter from "../components/landing/HorizonFooter";
 
-const BACKGROUND_IMAGE = "https://media.base44.com/images/public/user_69f07e798188f6f614f0bca2/30d3e9e70_Makkahwithgreenlight1.jpg";
 const LOGO_IMAGE = "https://media.base44.com/images/public/user_69f07e798188f6f614f0bca2/af649e12c_xlayout_set_logoqimg_id40191841at1778516310060pagespeedicw0_d1m34HJ.png";
 
 export default function Landing() {
-  const handleLogin = () => {
-    base44.auth.redirectToLogin("/");
-  };
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
 
   return (
-    <div dir="rtl" className="relative min-h-screen font-tajawal overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src={BACKGROUND_IMAGE}
-          alt="محطة قطار الحرمين"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
-      </div>
+    <div dir="rtl" className="relative min-h-screen font-tajawal overflow-hidden bg-background">
+      {/* Cinematic Background */}
+      <HeroBackground isHovered={isButtonHovered} />
 
-      {/* Content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 gap-10">
+      {/* Track perspective lines */}
+      <TrackLines />
+
+      {/* Main Content */}
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
         {/* Logo */}
-        <img
-          src={LOGO_IMAGE}
-          alt="قطار الحرمين السريع"
-          className="h-20 md:h-28 w-auto brightness-0 invert opacity-90"
-        />
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="mb-8 md:mb-12"
+        >
+          <img
+            src={LOGO_IMAGE}
+            alt="قطار الحرمين السريع"
+            className="h-16 md:h-24 w-auto brightness-0 invert opacity-85"
+            width={240}
+            height={96}
+          />
+        </motion.div>
 
-        {/* Decorative Line */}
-        <div className="w-24 h-px bg-primary/60" />
+        {/* Luminous Rail Divider */}
+        <LuminousRail className="w-40 md:w-56 mb-8 md:mb-10" delay={0.5} />
 
-        {/* Welcome Text */}
-        <div className="text-center">
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-wide">
+        {/* Welcome Text Block */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center mb-10 md:mb-14"
+        >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-3 md:mb-4 tracking-tight">
             مرحباً بك
           </h1>
-          <p className="text-white/60 text-lg md:text-xl font-light max-w-md mx-auto leading-relaxed">
+
+          {/* Gold accent line under heading */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="w-12 h-0.5 bg-gradient-to-r from-secondary/60 via-secondary to-secondary/60 mx-auto mb-5 md:mb-6"
+          />
+
+          <p className="text-muted-foreground text-base md:text-xl font-light max-w-sm md:max-w-md mx-auto leading-relaxed">
             نظام قطار الحرمين السريع
           </p>
-        </div>
+        </motion.div>
 
-        {/* Login Link */}
-        <a
-          href="#"
-          onClick={(e) => { e.preventDefault(); handleLogin(); }}
-          className="inline-flex items-center gap-3 text-white/80 hover:text-white text-lg underline underline-offset-4 decoration-white/40 hover:decoration-white transition-all duration-300"
+        {/* Glass Pulse Login Button */}
+        <GlassPulseButton onHoverChange={setIsButtonHovered} />
+
+        {/* Secondary info text */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="mt-8 text-xs md:text-sm text-muted-foreground/40 font-light"
         >
-          <LogIn className="w-5 h-5" />
-          دخول للموقع
-        </a>
+          بوابتك إلى رحلة الحرمين
+        </motion.p>
       </div>
+
+      {/* Horizon Footer */}
+      <HorizonFooter />
     </div>
   );
 }
