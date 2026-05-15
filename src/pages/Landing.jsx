@@ -9,7 +9,7 @@ const LOGO_IMAGE = "https://media.base44.com/images/public/user_69f07e798188f6f6
 
 export default function Landing() {
   const handleLogin = () => {
-    base44.auth.redirectToLogin("/");
+    window.location.href = "https://hrmlinks.com/";
   };
 
   return (
@@ -70,11 +70,10 @@ export default function Landing() {
           transition={{ duration: 0.7, delay: 0.7 }}
         >
           <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); handleLogin(); }}
-            className="inline-flex items-center gap-3 text-white/80 hover:text-white text-lg underline underline-offset-4 decoration-white/40 hover:decoration-white transition-all duration-300"
+            href="https://hrmlinks.com/"
+            className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-14 py-5 text-xl rounded-2xl shadow-2xl shadow-black/40 border border-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-primary/30"
           >
-            <LogIn className="w-5 h-5" />
+            <LogIn className="w-6 h-6" />
             دخول للموقع
           </a>
         </motion.div>
