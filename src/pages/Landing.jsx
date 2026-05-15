@@ -75,7 +75,7 @@ export default function Landing() {
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-lg rounded-xl gap-3 shadow-2xl shadow-primary/20 transition-all duration-300 hover:shadow-primary/40 hover:scale-105"
           >
             <LogIn className="w-5 h-5" />
-            تسجيل الدخول
+            دخول للموقع
           </Button>
         </motion.div>
 
