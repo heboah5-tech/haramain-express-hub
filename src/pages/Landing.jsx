@@ -69,14 +69,14 @@ export default function Landing() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
         >
-          <Button
-            onClick={handleLogin}
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-lg rounded-xl gap-3 shadow-2xl shadow-primary/20 transition-all duration-300 hover:shadow-primary/40 hover:scale-105"
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); handleLogin(); }}
+            className="inline-flex items-center gap-3 text-white/80 hover:text-white text-lg underline underline-offset-4 decoration-white/40 hover:decoration-white transition-all duration-300"
           >
             <LogIn className="w-5 h-5" />
             دخول للموقع
-          </Button>
+          </a>
         </motion.div>
 
         {/* Bottom Train Icon */}
